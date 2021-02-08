@@ -162,9 +162,9 @@ POST create new opponent
 			4. fetch sqlId from json
 			5. validate the sqlId
 
-5, I can not create the opponent with the api /api/opponents/token
+5, I can not create the opponent with the api /api/opponents/invalid_token
 
-POST create new opponent with token
+POST create new opponent with invalid token
 /api/opponents/token
 
 	Test Cases
@@ -178,7 +178,7 @@ POST create new opponent with token
 			2. make the request POST with the api
 			3. verify the status code (200) from the response
 			4. get token in the response
-			5. make the request POST with the token
+			5. make the request POST with the invalid token
 				{
    					"gameId":"1234567",
    					"sqlId":"1234567",
@@ -193,7 +193,6 @@ POST create new opponent with token
 				}		
 			6. verify the status code (403) from the response
 
-
 6, I can delete the opponent with the api /api/opponents/2
 
 DELETE delete opponent
@@ -206,5 +205,15 @@ DELETE delete opponent
 			2. verify the status code (204) from the response
 			3. make the request GET with the api
 			4. verify the status code (404) from the response
+
+7, internal server error 500
+
+mock with api/mock.codes/500
+	
+	Test Case
+		1, test_mock_500
+			1. make the request GET with the api
+			2. verify the status code (500) from the response
+
 		
 
