@@ -10,12 +10,8 @@ This is the version I use
 
 * html-testRunner 1.2.1
 * jsonpath        0.82
-* MarkupSafe      1.1.1
 * pip             21.0.1
-* py              1.10.0
-* pyparsing       2.4.7
 * pytest          6.2.2
 * requests        2.25.1
-* selenium        3.141.0
 
 4. you can the tests from command line with `pytest -v  TestCases` from the path ..\
