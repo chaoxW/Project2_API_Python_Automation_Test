@@ -17,3 +17,5 @@ This is the version I use
 * pytest          6.2.2
 * requests        2.25.1
 * selenium        3.141.0
+
+4. you can the tests from command line with `pytest -v  TestCases` from the path ..\
