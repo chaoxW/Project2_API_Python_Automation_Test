@@ -1,0 +1,12 @@
+{
+   "gameId":"1234567 updated",
+   "sqlId":"1234567 updated",
+   "date":"2016-01-01T19:00:00",
+   "opponent":"TestOpponent updated",
+   "opponentId":"123456",
+   "isHome":true,
+   "gameType":0,
+   "categories":[
+
+   ]
+}
