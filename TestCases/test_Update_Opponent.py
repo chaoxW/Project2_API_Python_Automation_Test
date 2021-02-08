@@ -2,7 +2,7 @@ import json
 import requests
 import jsonpath
 
-def test_update_opponent_data():
+def test_update_opponent_status_code():
     # API URL
     url = "https://reqres.in/api/users/2"
 
@@ -16,8 +16,21 @@ def test_update_opponent_data():
     print(response)
     assert response.status_code == 200
 
+def test_update_opponent_data():
+    # API URL
+    url = "https://reqres.in/api/users/2"
+
+    # read input json file
+    file = open("C:/Users/shuai.wang/PycharmProjects/API Tets/Lib/opponentUpdated.json")
+    request_json = json.loads(file.read())
+    #print(request_json)
+
+    # put request
+    response = requests.put(url, request_json)
+
     # parse response content
-    response_json = json.loads(response.text)
+    #response_json = json.loads(response.text)
+    response_json = response.json()
 
     # fetch opponent updated
     opponent_update = jsonpath.jsonpath(response_json, "opponent")

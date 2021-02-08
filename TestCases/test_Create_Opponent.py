@@ -1,11 +1,13 @@
 import json
 import requests
 import jsonpath
+import unittest
+import HtmlTestRunner
 
 # API URL
 url = "https://reqres.in/api/users"
 
-def test_create_new_opponent():
+def test_create_new_opponent_status_code():
     # read input json file
     file = open("C:/Users/shuai.wang/PycharmProjects/API Tets/Lib/opponent.json", "r")
     json_input = file.read()
@@ -25,7 +27,8 @@ def test_create_new_opponent_fetch_id():
     # post request with json input body
     response = requests.post(url, request_json)
     # parse response to json format
-    response_json = json.loads(response.text)
+    #response_json = json.loads(response.text)
+    response_json = response.json()
     # print(response_json)
     # get id with json path
     id = jsonpath.jsonpath(response_json, "id")

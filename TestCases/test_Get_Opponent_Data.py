@@ -2,17 +2,24 @@ import json
 import requests
 import jsonpath
 
-def test_get_opponent_data():
+def test_get_opponent_status_code():
     # API URL
     url = "https://reqres.in/api/users?page=2"
     # get request
     response = requests.get(url)
 
-    # display response content
-    #print(response)
-    # print(response.content)
-    # print(response.headers)
+    # validate response code
+    response_code = response.status_code
+    assert response_code == 200
 
+
+
+
+def test_get_opponent_data():
+    # API URL
+    url = "https://reqres.in/api/users?page=2"
+    # get request
+    response = requests.get(url)
     # parse response to Json format
     #json_response = json.loads(response.text)
     json_response = response.json()
