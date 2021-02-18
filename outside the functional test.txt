@@ -1,0 +1,33 @@
+Not only the functional tests we should make, we also need to make stress test and proformance tests.
+
+
+Why we should make stress test
+We should make sure the reliability and stability of all of your web resources, for example to manage a high number of visitors or huge traffic
+
+The goal of stress test
+The goal is to test the recoverability of the system, after the failure the system should recovers smoothly,and find the roott cause of the system crash.
+1, Evaluating the stability and reliability of resources or application under heavy traffic conditions. 
+2, Optimizing the system to avoid breakdown.
+3, Planning the scalability and resource requirement correctly.
+
+The types of stress test 
+1, Application Stress Test
+	* The goal is to find data and network bottlenecks for an application to optimize the performance.
+2, System Stress Test
+	* the tests make between different applications running on the same server to identify the blocking situations
+
+
+API performance testing
+
+1, We can identify slow API, memory leaks
+2, We can use mocking the data as expected in real-time
+3, It is very important to identify the right APIs for testing
+	* Being called Frequency
+	* With heavy actions
+	* If it is in production, we can use the usage statistics to find out the functionality/API is facing high traffic
+4, We can use Jmeter to create Virtual Users to make the calls for the selected APIs
+5, The performance tests we can perform
+	* Indexing, when the requirements grow or change, the indexes were not optimized
+	* Pagination, querying takes less time and memory
+	* Caching, query data which is static or which do not change a lot from database
+	* Mock data; mock the data from application flow which is useful to have the right set of data

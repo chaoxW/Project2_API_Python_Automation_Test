@@ -1,5 +1,51 @@
-API Project Test Plan
-* I have used the open api to make some automation tests as similar requests as the project 
+API Project Test Plan with UI flow (assume the UI flow which means we use power automate)
+
+UI flow example (power automate)
+
+Acceptance criteria example
+I want to search the team from the page
+
+	Test Case
+	1, Ctreate a flow from power automate
+		* Use "When a HTTP request is receoved" with GET
+		* Use "Response" with status code 200 and body with "Hello World"
+		* Save the flow then from  "When a HTTP request is receoved" get the url to call for example "https://www.hudl.com//api/opponents?page=1"
+	2, Use post man and paste the url "https://www.hudl.com//api/opponents?page=1" send
+		* we can get 200 and "Hello World" from the body
+	3, We can add "&team=Milan", and send "https://www.hudl.com//api/opponents?page=1&team=Milan"
+		* we can get "Milan" from the headers
+	4, Add action into the flow between "When a HTTP request is receoved" and "Response" with "Compose" (as a debugging tool, use expression "triggerOutput"), and save
+	5, Go back to post man and resend "https://www.hudl.com//api/opponents?page=1&team=Milan"
+	6, Check the last call from my flow, check what the query returns, from "Outputs" we can find the element "queries"{"Team":"Milan"}
+	7, Go back to the flow update the "Compose" expression with "triggerOutput().queries.Team", and save the flow
+	8, Go back to post man and resend "https://www.hudl.com//api/opponents?page=1&team=Milan"
+	9, Check the last call from my flow
+		* we get "Outputs":"Milan"
+	10, Rename the "Compose" with "Team", and add action "Get items" from share point, set the list name as "Teams", set the Filter Query as "Team eq Outputs"
+	11, Create an initialize variable name as "Teams" as Array, and save
+	12, Add action "Apply to each" select an output from previous steps with "value",and save
+	13, Update "Response" body with "Teams", and save
+	14, Go back to post man and resend "https://www.hudl.com//api/opponents?page=1&team=Milan"
+		* we get ["Inter", "AC Milan"]
+	15, Go back to post man and resend "https://www.hudl.com//api/opponents?page=1&team=Turin"
+		* we get ["Juventus"]
+
+*****************************************************************************************************************************
+
+Questions:
+1, I read this requirment "how the UI interacts with a service API" from project 2
+I am not so sure about thie requirement, is it API tests with UI flow such as power automate, or you mean the UX deasign?
+
+2, Any possibility to test the api but missing required functionality?
+
+3, Any security testing? performance test? stress test?
+
+*****************************************************************************************************************************
+
+Automation tests with pytest
+
+* The follwing test cases I have used the open api to make some automation tests as similar requests as the project
+* I use pytest to make the automation tests for the demo in Git  
 
 Acceptance criteria
 1, I can login with the api /api/login
